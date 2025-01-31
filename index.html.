@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffe6e6;
+            text-align: center;
+            padding: 50px;
+            position: relative;
+        }
+        h1 {
+            color: #ff66b2;
+        }
+        p {
+            color: #ff1a75;
+        }
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            padding: 30px;
+        }
+        .button {
+            background-color: #ff66b2;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        .button-no {
+            background-color: #ff4d4d;
+            position: relative;
+        }
+        #section2 {
+            display: none;
+        }
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff66b2;
+            transform: rotate(45deg);
+            animation: float 5s infinite ease-in-out;
+        }
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff66b2;
+            border-radius: 50%;
+        }
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+        @keyframes float {
+            0% {
+                opacity: 1;
+                transform: translateY(0) rotate(45deg);
+            }
+            50% {
+                opacity: 0.5;
+                transform: translateY(-200px) rotate(45deg);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-400px) rotate(45deg);
+            }
+        }
+    </style>
+    <script>
+        function moveButton() {
+            var button = document.getElementById('btnNo');
+            var x = Math.floor(Math.random() * window.innerWidth);
+            var y = Math.floor(Math.random() * window.innerHeight);
+            button.style.left = x + 'px';
+            button.style.top = y + 'px';
+        }
+
+        function showSection() {
+            document.getElementById('section1').style.display = 'none';
+            document.getElementById('section2').style.display = 'block';
+        }
+
+        function createHearts() {
+            for (var i = 0; i < 20; i++) {
+                var heart = document.createElement('div');
+                heart.className = 'heart';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = 3 + Math.random() * 2 + 's';
+                document.body.appendChild(heart);
+            }
+        }
+
+        window.onload = createHearts;
+    </script>
+</head>
+<body>
+    <div id="section1" class="container">
+        <a href="https://imgbb.com/"><img src="https://i.ibb.co/0jmymS8k/bear.gif" alt="bear" border="0"></a>
+        <h1>¿Quieres ser mi Valentín?</h1>
+        <p>&lt;😏😏</p>
+        <button class="button" onclick="showSection()">Sí</button>
+        <button class="button button-no" id="btnNo" onmouseover="moveButton()">No</button>
+    </div>
+    <div id="section2" class="container">
+        <h1>mibebe</h1>
+        <p>Es extraño como llegué a enamorarme tanto de ti, me encanta pasar mi tiempo contigo aún así a veces sea poco, aunque no tengo mucho intenté hacer algo decente, me siento mal porque no puedo irte a ver en un día especial, porque no puedo darte cosas ☹️. </p>
+    </div>
+</body>
+</html>
